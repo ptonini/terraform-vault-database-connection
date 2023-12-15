@@ -12,6 +12,7 @@ resource "vault_database_secret_backend_connection" "this" {
       url      = elasticsearch.value.url
       username = elasticsearch.value.username
       password = elasticsearch.value.password
+      insecure = elasticsearch.value.insecure
     }
   }
 

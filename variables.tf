@@ -34,6 +34,7 @@ variable "elasticsearch" {
     url      = string
     username = string
     password = string
+    insecure = optional(bool)
   })
   default = null
 }
