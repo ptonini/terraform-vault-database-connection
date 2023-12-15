@@ -53,6 +53,7 @@ variable "mysql" {
     username       = string
     tls_ca         = string
   })
+  default = null
 }
 
 variable "postgresql" {
