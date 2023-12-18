@@ -1,7 +1,7 @@
 resource "vault_database_secret_backend_connection" "this" {
   name                     = var.name
   backend                  = try(var.backend.path, var.backend)
-  allowed_roles            = var.allowed_roles
+  allowed_roles            = concat([for k, v in var.roles : v.name], var.allowed_roles)
   verify_connection        = var.verify_connection
   data                     = var.data
   root_rotation_statements = var.root_rotation_statements
