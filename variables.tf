@@ -64,3 +64,13 @@ variable "postgresql" {
   })
   default = null
 }
+
+variable "roles" {
+  type = map(object({
+    name                = optional(string)
+    backend             = string
+    db_name             = string
+    creation_statements = list(string)
+    default_ttl         = optional(number)
+  }))
+}

@@ -54,3 +54,12 @@ resource "vault_generic_endpoint" "rotate_root" {
     vault_database_secret_backend_connection.this
   ]
 }
+
+resource "vault_database_secret_backend_role" "this" {
+  for_each            = var.roles
+  name                = coalesce(each.value.name, each.key)
+  backend             = vault_database_secret_backend_connection.this.backend
+  db_name             = vault_database_secret_backend_connection.this.name
+  creation_statements = each.value.creation_statements
+  default_ttl         = each.value.default_ttl
+}
