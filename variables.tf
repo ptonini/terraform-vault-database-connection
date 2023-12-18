@@ -4,7 +4,8 @@ variable "backend" {}
 
 variable "allowed_roles" {
   type    = list(string)
-  default = ["*"]
+  default = []
+  nullable = false
 }
 
 variable "data" {
