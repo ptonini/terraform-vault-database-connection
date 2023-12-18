@@ -75,4 +75,5 @@ variable "roles" {
     default_ttl         = optional(number)
   }))
   default = {}
+  nullable = false
 }
