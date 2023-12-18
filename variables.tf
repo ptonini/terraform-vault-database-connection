@@ -73,4 +73,5 @@ variable "roles" {
     creation_statements = list(string)
     default_ttl         = optional(number)
   }))
+  default = {}
 }
